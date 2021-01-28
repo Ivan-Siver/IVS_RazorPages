@@ -19,7 +19,7 @@ namespace RazorPagesGeneral.Pages
 
         public void OnGet()
         {
-            Message = $"Welcome to IVS Razor Page Web Application\nThe time now is: {DateTime.Now.ToLongTimeString()}";
+            Message = $"The time now is: {DateTime.Now.ToLongTimeString()}";
         }
     }
 }
