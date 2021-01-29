@@ -12,5 +12,7 @@ namespace IVS_RazorPages.Services
         Employee GetEmployee(int id);
 
         Employee Update(Employee updatedEmployee);
+
+        Employee Add(Employee newEmployee);
     }
 }
