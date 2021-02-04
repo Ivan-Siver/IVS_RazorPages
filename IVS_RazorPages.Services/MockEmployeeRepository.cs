@@ -76,6 +76,16 @@ namespace IVS_RazorPages.Services
             return newEmployee;
         }
 
+        public Employee Delete(int id)
+        {
+            Employee employeeToDelete = _employeeList.FirstOrDefault(x => x.Id == id);
+
+            if (employeeToDelete != null)
+                _employeeList.Remove(employeeToDelete);
+
+            return employeeToDelete;
+        }
+
         public IEnumerable<Employee> GetAllEmployees()
         {
             return _employeeList;

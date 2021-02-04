@@ -14,5 +14,7 @@ namespace IVS_RazorPages.Services
         Employee Update(Employee updatedEmployee);
 
         Employee Add(Employee newEmployee);
+
+        Employee Delete(int id);
     }
 }
