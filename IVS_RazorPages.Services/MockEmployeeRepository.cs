@@ -86,6 +86,21 @@ namespace IVS_RazorPages.Services
             return employeeToDelete;
         }
 
+        public IEnumerable<DeptHeadCount> EmployeeCountByDept(Dept? dept)
+        {
+            IEnumerable<Employee> query = _employeeList;
+
+            if (dept.HasValue)
+                query = query.Where(x => x.Department == dept.Value);
+
+            return query.GroupBy(x => x.Department)
+                                .Select(x => new DeptHeadCount() 
+                                {
+                                    Department = x.Key.Value,
+                                    Count = x.Count()
+                                }).ToList();
+        }
+
         public IEnumerable<Employee> GetAllEmployees()
         {
             return _employeeList;

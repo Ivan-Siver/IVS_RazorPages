@@ -16,6 +16,9 @@
 
 <h3>Employees count: @Model.Employees.Count()</h3>
 
+@*@await Component.InvokeAsync("HeadCount") *@
+<vc:head-count department="@null"></vc:head-count>
+
 <div class="row">
     @foreach (var item in Model.Employees)
     {
