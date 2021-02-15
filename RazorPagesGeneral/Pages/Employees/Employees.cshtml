@@ -12,12 +12,22 @@
     </div>
 }
 
-<h1>Employees</h1>
+<form method="get" class="mb-3">
+    <div class="input-group">
+        <input class="form-control" asp-for="SearchTerm" />
+
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </div>
+</form>
 
 <h3>Employees count: @Model.Employees.Count()</h3>
 
 @*@await Component.InvokeAsync("HeadCount") *@
 <vc:head-count department="@null"></vc:head-count>
+
+<h1>Employees</h1>
 
 <div class="row">
     @foreach (var item in Model.Employees)

@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using IVS_RazorPages.Models;
 using IVS_RazorPages.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
 
 namespace RazorPagesGeneral.Pages.Employees
 {
@@ -19,10 +16,13 @@ namespace RazorPagesGeneral.Pages.Employees
         }
 
         public IEnumerable<Employee> Employees { get; set; }
-        
+
+        [BindProperty(SupportsGet = true)] // по умолчанию работает только с ѕост-методами
+        public string SearchTerm { get; set; }
+
         public void OnGet()
         {
-            Employees = _db.GetAllEmployees();
+            Employees = _db.Search(SearchTerm);
         }
     }
 }
