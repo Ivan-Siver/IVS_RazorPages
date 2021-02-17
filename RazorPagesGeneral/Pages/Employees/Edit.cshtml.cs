@@ -1,14 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using IVS_RazorPages.Models;
 using IVS_RazorPages.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
+using System.IO;
 
 namespace RazorPagesGeneral.Pages.Employees
 {
@@ -56,7 +53,9 @@ namespace RazorPagesGeneral.Pages.Employees
                     if (Employee.PhotoPath != null)
                     {
                         string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", Employee.PhotoPath);
-                        System.IO.File.Delete(filePath);
+
+                        if (Employee.PhotoPath != "noimage.jpg")
+                            System.IO.File.Delete(filePath);
                     }
 
                     Employee.PhotoPath = ProcessUploadedFile();

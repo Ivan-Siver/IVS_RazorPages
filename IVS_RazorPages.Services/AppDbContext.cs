@@ -10,6 +10,6 @@ namespace IVS_RazorPages.Services
 
         }
 
-        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Employee> Employees { get; set; } // =это будет именем создаваемой таблицы
     }
 }
